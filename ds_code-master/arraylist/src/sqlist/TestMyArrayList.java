@@ -93,7 +93,5 @@ public class TestMyArrayList {
         myArrayList5.display();
 
 
-
-
     }
 }
