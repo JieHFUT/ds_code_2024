@@ -75,27 +75,89 @@ public class MyArrayList<E> {
             }
             // 插入数据
             elementData[index] = e;
-
+            size++;
         }
     }
 
-    //
+    // 判断是否包含某个元素
+    public boolean contains(E e) {
+        for(int i = 0; i < size; i++) {
+            if(elementData[i].equals(e)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
-    //
+    // 查找某一个元素对应的位置，找不到就返回 -1
+    public int indexOf(E e) {
+        for(int i = 0; i < size; i++) {
+            if(elementData[i].equals(e)) {
+                return i;
+            }
+        }
+        return -1;
+    }
 
-    //
+    // 获取 index 位置的元素
+    public E get(int index) {
+        if(index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("下标不合法！" + index);
+        }
+        if(isEmpty()) {
+            throw new ArrayIsEmptyException("数组为空！" + index);
+        }
+        return (E) elementData[index];
+    }
 
-    //
+    // 判断是否为空
+    public boolean isEmpty() {
+        return size == 0;
+    }
 
-    //
+    // 给 index 位置的索引设置为 value
+    public boolean set(int index, E e) {
+        if(checkIndex(index)) {
+            if(isEmpty()) {
+                throw new ArrayIsEmptyException("数组为空！" + index);
+            }
+            elementData[index] = e;
+        }
+        // 下标不合法
+        return false;
+    }
 
-    //
+    // 删除第一次出现的关键字 key
+    public void remove(E e) {
+        if(isEmpty()) {
+            throw new ArrayIsEmptyException("数组为空！");
+        }
+        for(int i = 0; i < size; i++) {
+            if(elementData[i].equals(e)) {
+                // 移动其余元素
+                for(int j = i; j < size-1; j++) {
+                    elementData[j] = elementData[j+1];
+                }
+                elementData[--size] = null;
+                return;
+            }
+        }
+        throw new DeleteElementNotExistException("要删除的数据不存在！");
+    }
 
-    //
+    // 获取顺序表长度
+    public int size() {
+        return size;
+    }
 
-    //
+    // 清空数据表
+    public void clear() {
+        for(int i = 0; i < size; i++) {
+            elementData[i] = null;
+        }
+        size = 0;
+    }
 
-    //
 
 
 
