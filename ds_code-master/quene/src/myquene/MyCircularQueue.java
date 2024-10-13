@@ -6,8 +6,8 @@ package myquene;
 class MyCircularQueue {
 
     private int[] elem;
-    public int front;
-    public int rear;
+    public int front; // 前面的
+    public int rear; // 后面的
 
 
     /**
