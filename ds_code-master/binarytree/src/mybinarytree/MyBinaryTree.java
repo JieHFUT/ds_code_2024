@@ -153,6 +153,8 @@ public class MyBinaryTree<E> {
         size(root.right);
         return this.numTreeNote;
     }
+
+
     public int otherSize(TreeNote<E> root){
         if (root == null) return 0;
         return otherSize(root.left) +
