@@ -11,6 +11,7 @@ public class MyArrayIsEmptyExption extends RuntimeException{
 
     public MyArrayIsEmptyExption(){
 
+
     }
     public MyArrayIsEmptyExption(String message){
         super(message);
